@@ -139,7 +139,6 @@ class MainPage(tk.Frame):
 
 	def updateSettingsOnPi(self):
 		global runningCmd, updateStatus
-		timeout = False
 		if (runningCmd):
 			return
 		runningCmd = True
@@ -155,7 +154,6 @@ class MainPage(tk.Frame):
 			process.wait(10)
 		except subprocess.TimeoutExpired:
 			process.kill()
-			timeout = True
 		if (process.returncode != 0):
 			# if (timeout):
 			# 	# print('Error: Timeout ')
